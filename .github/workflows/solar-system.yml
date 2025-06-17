@@ -7,7 +7,5 @@ jobs:
       runs-on: ubuntu-22.04
       steps:
         - name: list files
-          run: ls
-        - name: read file
-          run: cat README.md
-          
+          run: ls -al
+    
