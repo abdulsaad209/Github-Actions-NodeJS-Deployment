@@ -16,10 +16,6 @@ jobs:
         ports:
           - 27017:27017
 
-    container:
-      image: node:18-alpine3.14
-      options: --network host
-
     env:
       MONGO_URI: mongodb://test-user:test-user-1@localhost:27017/solar_system
 
