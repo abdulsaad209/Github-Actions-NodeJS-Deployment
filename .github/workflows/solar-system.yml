@@ -1,7 +1,7 @@
 name: Deploying Solar System Application
 
 env:
-  MONGO_URI: "mongodb://superuser:SuperPassword@13.222.28.171:27017/solar_system"
+  MONGO_URI: secrets.MONGO_URI_SECRET
 
 on:
   workflow_dispatch: 
