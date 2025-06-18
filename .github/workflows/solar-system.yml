@@ -90,15 +90,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push the image
+      - name: Docker Build
         uses: docker/build-push-action@v3
         with:
           context: .
           push: false
           load: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ github.run_id }}
-          # cache-from: type=gha
-          # cache-to: type=gha,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Testing the Image
         run: |
@@ -112,6 +112,15 @@ jobs:
 
           echo "Testing image URL using wget"
           wget -q -O - 127.0.0.1:3000/live | grep live
+
+      - name: Docker Push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ github.run_id }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
          
 
 
