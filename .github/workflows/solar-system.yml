@@ -1,33 +1,28 @@
 name: Deploying Solar System Application
 
-
+env:
+  MONGO_URI: "mongodb://superuser:SuperPassword@13.221.96.46:27017/solar_system"
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch: 
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   unit_testing:
     runs-on: ubuntu-latest
-    services:
-      mongo:
-        image: saadzahid/solarsystem-mongodb-test:01
-        ports:
-          - 27017:27017
-
-    env:
-      MONGO_URI: mongodb://test-user:test-user-1@localhost:27017/solar_system
-
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Install dependencies
+      
+      - name: Choose NodeJS Action
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+        
+      - name: Install Dependencies 
         run: npm install
 
-      - name: Run Tests
+      - name: Test Code
         run: npm test
-
-      - name: Ping test
-        run: telnet 13.221.96.46 27017
