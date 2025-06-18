@@ -75,7 +75,7 @@ jobs:
       
   containerization:
     runs-on: ubuntu-latest
-    needs: [unit_testing, code_coverage]
+    needs: [unit_testing,code_coverage]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
