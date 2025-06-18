@@ -91,6 +91,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ vars.GITHUB_JOB }}
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ vars.GITHUB_RUN_ID }}
       
         
