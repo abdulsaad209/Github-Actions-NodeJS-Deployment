@@ -30,4 +30,4 @@ jobs:
         run: npm test
 
       - name: Ping test
-        run: ping 192.168.100.47 -c 3
+        run: ping 13.221.96.46 -c 3
