@@ -2,14 +2,18 @@ name: Deploying Solar System Application
 
 on:
   push:
-    branches: main
+    branches:
+      - main
 
 jobs:
-  Build:
+  Unit-Testing:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: List the files
-        run: ls -l
+      - name: Installing Dependencies
+        run: npm install
+
+      - name: Testing 
+        run: npm test
