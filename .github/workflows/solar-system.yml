@@ -94,11 +94,18 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          push: true
+          push: false
           tags: ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ github.run_id }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Testing the Image
+        run: |
+          docker images
+          docker run --name solar-system-app -d \
+          -p 3000:3000 \
+          -e MONGO_URI=$MONGO_URI \
+          ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ github.run_id }}
 
-      
+
         
