@@ -103,9 +103,15 @@ jobs:
         run: |
           docker images
           docker run --name solar-system-app -d \
-          -p 3000:3000 \
-          -e MONGO_URI=$MONGO_URI \
-          ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ github.run_id }}
+            -p 3000:3000 \
+            -e MONGO_URI=$MONGO_URI \
+            ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ github.run_id }}
+          export IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' solar-system-app)
+          echo $IP
+
+          echo "Testing image URL using wget"
+          wget -q -O - 127.0.0.1:3000/live | grep live
+         
 
 
         
