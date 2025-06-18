@@ -5,9 +5,9 @@ env:
 
 on:
   workflow_dispatch: 
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
 
 jobs:
   unit_testing:
@@ -52,7 +52,8 @@ jobs:
         run: npm run coverage
 
       - name: Storing Artifacts
-        uses: actions/setup-node@v4
+        uses: actions/upload-artifact@v4
         with:
-          cache-dependency-path: coverage/cobertura-coverage.xml
+          name: Storing Code Coverage Artifacts
+          path: coverage/cobertura-coverage.xml
       
