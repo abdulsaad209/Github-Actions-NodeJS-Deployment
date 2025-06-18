@@ -54,6 +54,5 @@ jobs:
       - name: Storing Artifacts
         uses: actions/setup-node@v4
         with:
-          name: Upload Code Coverage Artifacts
-          path: coverage/cobertura-coverage.xml
+          cache-dependency-path: coverage/cobertura-coverage.xml
       
