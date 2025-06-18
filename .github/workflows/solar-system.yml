@@ -94,8 +94,8 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }} # inbuilt variable take github username
-          password: ${{ secrets.GITHUB_TOKEN }}
-          #password: ${{ secrets.GHCR_PAT }}        # token is stored in github secrets
+          #password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GHCR_PAT }}        # token is stored in github secrets
         
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
