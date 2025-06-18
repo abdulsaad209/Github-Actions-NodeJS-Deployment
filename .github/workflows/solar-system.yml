@@ -95,6 +95,7 @@ jobs:
         with:
           context: .
           push: false
+          load: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/solar_system:${{ github.run_id }}
           # cache-from: type=gha
           # cache-to: type=gha,mode=max
