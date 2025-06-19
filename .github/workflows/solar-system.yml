@@ -11,7 +11,7 @@ on:
 
 jobs:
   unit_testing:
-    runs-on: linux_ubuntu_docker
+    runs-on: prod
     steps:
       - run: ip a
   #   container:  # Run job inside the container
