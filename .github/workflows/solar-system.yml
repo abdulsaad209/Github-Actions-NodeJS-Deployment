@@ -1,7 +1,7 @@
 name: Deploying Solar System Application
 
-# env:
-#   MONGO_URI: ${{ secrets.MONGO_URI_SECRET }}
+env:
+  MONGO_URI: ${{ secrets.MONGO_URI_SECRET }}
 
 on:
   workflow_dispatch: 
