@@ -14,6 +14,8 @@ jobs:
     runs-on: prod
     steps:
       - run: ip a
+      - run: ping -c 3 192.168.100.51
+      - run: ping -c 3 192.168.100.91
   #   container:  # Run job inside the container
   #     image: node:18-alpine3.14
   #   services:
