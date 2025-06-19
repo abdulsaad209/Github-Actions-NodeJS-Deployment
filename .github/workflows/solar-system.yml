@@ -12,6 +12,13 @@ on:
 jobs:
   unit_testing:
     runs-on: ubuntu-latest
+    services:
+      mongodb: # label
+        image: saadzahid/solarsystem-mongodb-test:01
+        ports:
+          - 27017:27017
+    env:
+      MONGO_URI: mongodb://test-user:test-user-1@localhost:27017/solar_system
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
