@@ -17,10 +17,10 @@ jobs:
     services:
       mongodb: # label
         image: saadzahid/solarsystem-mongodb-test:01 # Using test db container instead of prod db
-        ports:
-          - 27017:27017
+        options:
+          --name mongo # assigning container name so that i can use this in MONGO_URI to connect to db
     env:
-      MONGO_URI: mongodb://test-user:test-user-1@localhost:27017/solar_system
+      MONGO_URI: mongodb://test-user:test-user-1@mongo:27017/solar_system
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -58,10 +58,10 @@ jobs:
     services:
       mongodb: # label
         image: saadzahid/solarsystem-mongodb-test:01 # Using test db container instead of prod db
-        ports:
-          - 27017:27017
+        options:
+          --name mongo # assigning container name so that i can use this in MONGO_URI to connect to db
     env:
-      MONGO_URI: mongodb://test-user:test-user-1@localhost:27017/solar_system
+      MONGO_URI: mongodb://test-user:test-user-1@mongo:27017/solar_system
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
