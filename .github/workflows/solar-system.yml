@@ -155,7 +155,7 @@ jobs:
   dev_deploy:
     name: Deploy in K8s Dev Environment
     runs-on: self-hosted
-    #needs: containerization
+    needs: containerization
     steps:
       - name: Setup kubectl
         uses: azure/setup-kubectl@v4
