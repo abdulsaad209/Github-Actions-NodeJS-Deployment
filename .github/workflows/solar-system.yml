@@ -175,7 +175,7 @@ jobs:
 
       - name: Saving Ingress IP as Variable
         run: |
-          export INGRESS_IP=$(kubectl -n ingress-nginx get services ingress-nginx-controller -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+          echo "INGRESS_IP=$(kubectl -n ingress-nginx get services ingress-nginx-controller -o jsonpath="{.status.loadBalancer.ingress[0].ip}")" >> "$GITHUB_ENV"
           echo $INGRESS_IP
 
       - name: Replace Tokens in manifest files
