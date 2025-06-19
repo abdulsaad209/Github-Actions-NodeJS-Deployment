@@ -166,7 +166,7 @@ jobs:
         uses: azure/k8s-set-context@v4
         with:
           method: kubeconfig
-          kubeconfig: echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64
+          kubeconfig: ${{ secrets.KUBECONFIG }}
 
       - name: Check kubectl version and nodes
         run: |
