@@ -130,6 +130,7 @@ jobs:
       - name: Testing the Image
         run: |
           docker images
+          docker container rm -f solar-system-app
           docker run --name solar-system-app -d \
             -p 3000:3000 \
             -e MONGO_URI=$MONGO_URI \
